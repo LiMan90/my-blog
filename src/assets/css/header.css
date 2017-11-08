@@ -91,18 +91,18 @@ a {
       margin: 0 auto;
     }
 }
-@media screen and (min-width: 6px) {
+@media screen and (min-width: 12px) {
   .primary-navigation {
-      font-size: 14px;
+      font-size: 16px;
   }
   .site-navigation {
-      float: left;
+      float: right;
   }
   .primary-navigation li {
       border: 0;
       display: inline-block;
-      height: 38px;
-      line-height: 38px;
+      height: 50px;
+      line-height: 50px;
       position: relative;
   }
   .primary-navigation li:hover {
