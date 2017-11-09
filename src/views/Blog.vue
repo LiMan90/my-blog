@@ -11,8 +11,13 @@
     <div class="container content">
       <div class="list">
         <div class="main">
+          <banner-list :tagSelect="tag"></banner-list>
+        </div>
+
+        <div class="main">
           <article-list :tagSelect="tag"></article-list>
         </div>
+
         <div class="side">
           <side-section>
             <div slot="sidecontent">
@@ -98,7 +103,7 @@
             </div>
           </side-section>
 
-          <side-section>
+   <!--       <side-section>
             <div slot="sidecontent">
               <li class="message-title">留言</li>
               <li class="message-item" v-for="item in messagesList">
@@ -128,7 +133,7 @@
                 <span class="tags-item" v-for="item in tags"><a href="#" @click="getOne(item.tag)">{{item.tag}}</a></span>
               </div>
             </div>
-          </side-section>
+          </side-section>-->
           <!-- <iframe frameborder="no" border="0"  width="100%" height="300px" src="//music.163.com/outchain/player?type=0&amp;id=865099185&amp;auto=0&amp;"></iframe> -->
         </div>
 
@@ -145,6 +150,7 @@ import NavFooter from '@/components/Footer.vue'
 import articleList from '@/components/articleList.vue'
 import sideSection from '@/components/sideSection.vue'
 import scrollTop from '@/components/scrollTop.vue'
+import bannerList from '@/components/banner.vue'
 import axios from 'axios'
 export default {
   name: 'Blog',
@@ -153,7 +159,8 @@ export default {
     NavFooter,
     articleList,
     sideSection,
-    scrollTop
+    scrollTop,
+    bannerList
   },
   data() {
     return {

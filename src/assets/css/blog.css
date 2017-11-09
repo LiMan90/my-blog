@@ -46,11 +46,12 @@
 }
 
 .list .main {
-  width: 67%;
+  width: 100%;
   float: left;
-  margin-top: -90px;
+  /*margin-top: -90px;*/
   -webkit-transition: all .5s ease-out;
   transition: all .5s ease-out;
+  padding-bottom: 50px;
 }
 
 .list .side {
