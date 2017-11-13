@@ -5,14 +5,7 @@
       <div class="menum">
         <ul class="nav-menu">
           <li class="menu-item"><router-link href="#" to="/blog"><i class="fa fa-home"></i>首页</router-link></li>
-          <li id="collapse" class="menu-item">
-            <a target="_blank"><i class="fa fa-paw"></i>每日分享</a>
-            <ul class="collapse-menum">
-              <li class="menu-item" v-for="item in tags">
-                <a href="javascript:;" @click="getOne(item.tag)">{{item.tag}}</a>
-              </li>
-            </ul>
-          </li>
+          <li class="menu-item"><router-link to="/about"><i class="fa fa-paw"></i>每日分享</router-link></li>
           <li class="menu-item"><router-link to="/messages"><i class="fa fa-user"></i>关于我们</router-link></li>
           <li class="menu-item"><router-link to="/about"><i class="fa  fa-comments"></i>留言板</router-link></li>
         </ul>

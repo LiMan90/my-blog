@@ -13,6 +13,7 @@ import '@/assets/css/header.css'
 import '@/assets/css/article.css'
 import '@/assets/css/side.css'
 import '@/assets/css/blog.css'
+import '@/assets/css/banner.css'
 
 Vue.use(ElementUI)
 Vue.use(mavonEditor)

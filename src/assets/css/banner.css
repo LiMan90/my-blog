@@ -1,0 +1,30 @@
+.banner{
+  width:25%;
+  padding: 25px 0;
+  text-align:center;
+  float:left;
+}
+.banner a{
+  display:table-cell; vertical-align:middle;
+}
+.banner a img{
+  width: auto;
+  height: auto;
+  max-width: 60%;
+  max-height: 60%;
+  border: 2px solid  #5bc0de; /*border: 1px solid #000000;*/
+  -webkit-border-radius: 50%;
+  border-radius: 50%
+}
+
+.banner h3{
+  text-align:center;
+}
+.banner div{
+  outline-: dotted thin #0000ff;
+}
+.banner div p{
+  word-wrap:break-word;
+  overflow: hidden;
+  text-align: left;
+}
