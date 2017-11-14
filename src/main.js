@@ -15,6 +15,12 @@ import '@/assets/css/side.css'
 import '@/assets/css/blog.css'
 import '@/assets/css/banner.css'
 
+// 引用API文件
+import api from './api/index.js'
+// 将API方法绑定到全局
+Vue.prototype.$api = api;
+
+
 Vue.use(ElementUI)
 Vue.use(mavonEditor)
 

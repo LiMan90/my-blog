@@ -1,3 +1,14 @@
+* {
+  word-wrap: break-word;
+  outline: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .headpic {
   height: 280px;
   background: url(/static/xiyang.gif) center -52px no-repeat;
@@ -34,7 +45,7 @@
 .blog .article {
   font-family: PingFang TC, Avenir Next, Helvetica, Arial, Hiragino Sans GB, Microsoft YaHei, sans-serif;
   font-size: 15px;
-  color: #444!important;
+  color: #444 !important;
 }
 
 .content {
@@ -60,29 +71,77 @@
 
 @media (max-width: 1000px) {
   .list .main {
-    width: 100%!important;
+    width: 100% !important;
   }
+
   .list .side {
-    display: none!important;
+    display: none !important;
   }
+
   .headtitle {
     text-align: center;
     top: 100px;
   }
+
   .back-to-top {
-    right: 20px!important;
+    right: 20px !important;
   }
 }
 
 @media (max-width: 700px) {
   .headpic {
-    height: 300px!important;
+    height: 300px !important;
   }
+
   .headtitle {
     text-align: center;
     top: 100px;
   }
+
   .back-to-top {
     display: none;
   }
+}
+
+.from-the-blog {
+  margin-bottom: 50px;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+@media (min-width: 769px) {
+  .container {
+    width: 760px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 980px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1180px;
+  }
+}
+
+.row {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.primary {
+  margin: 20px 0;
+}
+.col-md-12 {
+  width: 100%;
+  float: left;
 }

@@ -1,3 +1,5 @@
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
 .banner{
   width:25%;
   padding: 25px 0;
@@ -5,9 +7,11 @@
   float:left;
 }
 .banner a{
-  display:table-cell; vertical-align:middle;
+
 }
 .banner a img{
+  display:table-cell;
+  vertical-align:middle;
   width: auto;
   height: auto;
   max-width: 60%;
@@ -18,13 +22,31 @@
 }
 
 .banner h3{
+  margin: 15px 0;
   text-align:center;
+  font-weight: normal;
+  font-size: 1.2em;
+  color: #444;
 }
-.banner div{
 
+.banner h3 a{
+  text-align: center;
+}
+
+.banner div{
+  color: #666;
+  font-size: 16px;
+  word-wrap: break-word;
+  outline: none;
+  line-height: 1.2;
+  text-align: center;
+  box-sizing: border-box;
 }
 .banner div p{
-  word-wrap:break-word;
-  overflow: hidden;
-  text-align: left;
+  line-height: 140%;
+  margin: 0 0 10px;
+  word-wrap: break-word;
+  outline: none;
+  text-align: center;
+  height: 40px;
 }
