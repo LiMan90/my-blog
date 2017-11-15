@@ -7,7 +7,7 @@
           <li class="menu-item"><router-link href="#" to="/blog"><i class="fa fa-home"></i>首页</router-link></li>
           <li class="menu-item"><router-link to="/article"><i class="fa fa-paw"></i>每日分享</router-link></li>
           <li class="menu-item"><router-link to="/messages"><i class="fa fa-user"></i>关于我们</router-link></li>
-          <li class="menu-item"><router-link to="/about"><i class="fa  fa-comments"></i>留言板</router-link></li>
+          <li class="menu-item"><router-link to="/about"><i class="fa fa-comments"></i>留言板</router-link></li>
         </ul>
       </div>
     </nav>
