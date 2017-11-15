@@ -11,6 +11,7 @@ import Router from 'vue-router'
 // import adminArticleList from '@/admin/adminArticleList'
 import login from '@/admin/login'
 const Blog = resolve => require(['@/views/Blog'], resolve)
+const Share = resolve => require(['@/views/Share'],resolve)
 const Index = resolve => require(['@/views/Index'], resolve)
 const About = resolve => require(['@/views/About'], resolve)
 const Article = resolve => require(['@/views/Article'], resolve)
@@ -36,6 +37,11 @@ export default new Router({
       path: '/blog',
       name: 'Blog',
       component: Blog
+    },
+    {
+      path: '/share',
+      mane: 'Share',
+      component: Share
     },
     {
       path: '/about',
