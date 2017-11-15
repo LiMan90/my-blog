@@ -305,6 +305,7 @@
     overflow: hidden;
     -webkit-transition: all .5s ease-out;
     transition: all .5s ease-out;
+    box-shadow: 0 16px 24px 1px rgba(0,0,0,.14),0 6px 50px 1px rgba(0,0,0,.12),0 6px 10px -5px rgba(0,0,0,.2);
   }
 
   .last {
