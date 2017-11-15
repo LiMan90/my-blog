@@ -90,6 +90,18 @@ export default {
 </script>
 
 <style media="screen" scoped>
+  * {
+    box-sizing: border-box;
+    word-wrap: break-word;
+    outline: none;
+  }
+
+  *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
   .index{
     font-family: 'Open Sans', 'Helvetica Neue',
     'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;

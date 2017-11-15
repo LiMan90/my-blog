@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+  word-wrap: break-word;
+  outline: none;
+}
+
+*:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Microsoft YaHei",simsun,Arial,Helvetica,sans-serif;
+  font-weight: normal;
+  line-height: 1.42857;
+  color: #333;
+  font-size: 14px;
+}
+
+img{
+  border: 0;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+}
+
+.from-the-blog {
+  margin-bottom: 50px;
+}
+
+.row {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.row:before, .row:after {
+  content: " ";
+  display: table;
+}
+
+.row:after {
+  clear: both;
+}
+
+.col-md-12 {
+  position: relative;
+  min-height: 1px;
+  float: left;
+  width: 100%;
+}
+
+.hfeed {
+  margin-top: 20px;
+}
+
+.page-header {
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 1.3em;
+  color: #333;
+}
+
+
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+
+small {
+  font-size: 85%;
+}
+
+
+.col-md-6 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+  width: 50%;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+/* 文章 */
+.from-the-blog article { margin-bottom: 12px; padding-bottom: 10px; }
+.from-the-blog article:last-child { color: #666; border-bottom: 1px solid #eee; font-weight: normal; }
+.from-the-blog article img.alignleft { margin-bottom: 0; }
+.first-post { margin-bottom: 20px; }
+.post-image:hover { opacity: 0.7; filter: alpha(opacity=70); }
+.entry-title { margin: 0; }
+.from-the-blog .entry-title { margin-bottom: 5px; }
+.entry-title a:hover { text-decoration: none; color: #777; }
+.entry-meta { line-height: 1; margin: 10px 5px; color: #999; padding-bottom: 5px; font-size: 14px; }
+.entry-meta span { margin: 0 10px 0 0; line-height: 1.5}
+.description { color: #666; margin: 0; line-height: 2}
+/* 404 */
+article.error404 i { font-size: 200px; display: block; text-align: center; margin-bottom: 40px; }
+article.error404 .entry-title { font-size: 500%; text-align: center; }
+@media (max-width:480px) {article.error404 .entry-title { font-size: 400%; }}
+article.error404 .entry-content { text-align: center; font-size: 200%; line-height: 1.2; text-transform: uppercase; }
+@media (max-width:480px) {article.error404 .entry-content { font-size: 150%; }}
+.alignleft { float: left; margin: 0 15px 15px 0; }
