@@ -10,8 +10,8 @@
 }
 
 .headpic {
-  height: 280px;
-  background: url(/static/xiyang.gif) center -52px no-repeat;
+  height: 300px;
+  background: url(/static/bg.jpg) center -500px no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
   position: relative;

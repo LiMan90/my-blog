@@ -1,14 +1,14 @@
 <template lang="html">
-  <div class="blog">
+  <div class="share">
     <nav-header @shareTags='shareTags' @shareOne='shareOne'></nav-header>
     <div class="headpic">
-      <div class="container headtitle">
+      <div class="container headtitle full">
         <div class="title">
-          <h1 href="/blog">Chunibyo</h1>
+          <h1 href="/blog">ShanShan</h1>
         </div>
       </div>
     </div>
-    <div class="container content">
+    <div class="container content full">
       <div class="list">
         <div class="main">
           <article-list :tagSelect="tag"></article-list>
