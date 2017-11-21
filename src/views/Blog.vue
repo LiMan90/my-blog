@@ -59,7 +59,7 @@
       }
     },
     mounted() {
-      this.getMessages()
+      /*this.getMessages()*/
     },
     methods: {
       // 利用监听获取子组件数据，并传给另外的子组件

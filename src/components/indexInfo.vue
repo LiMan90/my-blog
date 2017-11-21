@@ -229,6 +229,9 @@
     },
     methods: {
       getIndexInfo(){
+        axios.get("/article/info", null, r =>{
+          this.list = r
+        })
 
       }
     },

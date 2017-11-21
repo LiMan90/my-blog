@@ -37,30 +37,14 @@ export default {
     }
   },
   mounted () {
-    this.getlist()
+   /* this.getlist()*/
   },
   methods: {
     getlist () {
-      var param = {
-        page: this.page,
-        pageSize: this.pageSize
-      }
-      axios.get("/api/articleList", {
-        params: param
-      }).then((result)=>{
-        let res = result.data
-        if (res.status == "0") {
-          if (res.result.count == 0) {
-            this.page -= 1
-            return
-          } else {
-            this.list = res.result.list
-          }
-        } else {
-          this.list = []
-        }
-      })
+
     },
+
+
     getTagList () {
       var param = {
         page: this.page,
