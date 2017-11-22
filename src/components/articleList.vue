@@ -2,23 +2,23 @@
 <div class="article-list">
   <article class="block post wysiwyg" v-for="item in list">
     <h2>{{item.title}}</h2>
-    <p class="article-meta">发布于 {{item.createDate}}</p>
-    <div class="ui ribbon label red">
-      <a href="">{{item.tag}}</a>
+    <p class="article-meta">作者：{{item.author}}  发布于: {{item.createTime}}  文章分类：{{item.category}}</p>
+<!--    <div class="ui ribbon label red">
+      <a href=""></a>
+    </div>-->
+    <div class="abstract">
+      {{item.contentAbstract}}
     </div>
-    <div class="abstract" v-html="item.content.html">
-    </div>
-    <p class="more"><router-link :to="{ path:'/article', query:{articleId:item.articleId}}">阅读全文</router-link></p>
+    <p class="more"><router-link :to="{ path:'/article', query:{articleId:item.id}}">阅读全文</router-link></p>
   </article>
   <div class="pages">
-    <a href="javascript:;" @click="go(page-=1)" style="float: left;">上一页</a>
-    <a href="javascript:;" @click="go(page+=1)" style="float: right;">下一页</a>
+    <a href="javascript:;" @click="go(page.pageNum-=1)" style="float: left;">上一页</a>
+    <a href="javascript:;" @click="go(page.pageNum+=1)" style="float: right;">下一页</a>
   </div>
 </div>
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   props:[
     'tagSelect'
@@ -26,8 +26,10 @@ export default {
   data () {
     return {
       list: [],
-      page: 1,
-      pageSize: 10,
+      page:{
+        pageNum:1,
+        pageSize:10,
+      },
       count: 0
     }
   },
@@ -37,15 +39,17 @@ export default {
     }
   },
   mounted () {
-   /* this.getlist()*/
+    this.getDailyhare();
   },
   methods: {
-    getlist () {
-
+    getDailyhare(){
+      this.$api.get('/article/share', this.page, r => {
+        console.log(r.list);
+        this.list = r.list;
+      })
     },
 
-
-    getTagList () {
+/*    getTagList () {
       var param = {
         page: this.page,
         pageSize: this.pageSize,
@@ -66,13 +70,15 @@ export default {
           this.list = []
         }
       })
-    },
+    },*/
+
+
     go () {
       if (this.page<1) {
         this.page = 1
         return
       } else {
-        this.getlist()
+        this.getSDailyhare();
       }
     }
   }

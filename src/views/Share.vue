@@ -59,38 +59,7 @@
               </div>
             </div>
           </side-section>
-          <side-section>
-            <div slot="sidecontent">
-              <li class="message-title">留言</li>
-              <li class="message-item" v-for="item in messagesList">
-                <router-link to="/messages" class="message-from">
-                  <div class="message-content">
-                    <span class="l_title">
-                      {{item.name}}
-                      <span>
-                        <br>
-                        <small class="l_message">
-                          {{item.content}}
-                        </small>
-                      </span>
-                    </span>
-                  </div>
-                  <div class="message-avatar">
-                    <img :src="'https://cdn.v2ex.com/gravatar/' + item.email + '?s=120&d=mm&r=g'" alt="">
-                  </div>
-                </router-link>
-              </li>
-            </div>
-          </side-section>
-          <side-section>
-            <div slot="sidecontent">
-              <li class="message-title">标签</li>
-              <div class="tags">
-                <span class="tags-item" v-for="item in tags"><a href="#"
-                                                                @click="getOne(item.tag)">{{item.tag}}</a></span>
-              </div>
-            </div>
-          </side-section>
+
           <!-- <iframe frameborder="no" border="0"  width="100%" height="300px" src="//music.163.com/outchain/player?type=0&amp;id=865099185&amp;auto=0&amp;"></iframe> -->
         </div>
       </div>
@@ -121,27 +90,14 @@
         tags: [],
         dailyShare: [],
         tag: '',
-        pageOjb:{
-            next:2,
-            page:1
-        },
-        limit: 8 // 用于限制首页显示留言量
+
       }
     },
     mounted() {
-      this.getSDailyhare()
+
     },
     methods: {
 
-      getSDailyhare(){
-
-        this.$api.get('/article/share', null, r => {
-          console.log(r);
-          this.ariticleList = r;
-
-        })
-
-      },
 
       // 利用监听获取子组件数据，并传给另外的子组件
       shareTags(msg) {
