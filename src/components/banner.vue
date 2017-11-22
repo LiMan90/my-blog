@@ -1,7 +1,6 @@
 <template lang="html">
   <div class="banner-list">
     <div class="banner" v-for="banner in list">
-      <banner>
         <div class="overhidden">
           <a :href="banner.id">
             <img :src="banner.image">
@@ -9,7 +8,6 @@
         </div>
         <h3><a :href="banner.id" :title="banner.title">{{banner.title}}</a></h3>
         <div><p>{{banner.contentAbstract}}</p></div>
-      </banner>
     </div>
 
     <!--    <div class="banner">
@@ -46,7 +44,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
   export default {
     props: [
       'tagSelect'
@@ -58,11 +55,14 @@
       }
     },
     watch: {
-      tagSelect () {
+     /* tagSelect () {
         this.getTagList()
-      }
+      }*/
     },
     mounted () {
+      this.getBanners();
+    },
+    create(){
       this.getBanners();
     },
     methods: {
