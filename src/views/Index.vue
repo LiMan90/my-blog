@@ -56,9 +56,7 @@
 </template>
 
 <script>
-  import {query} from '@/assets/js/jquery.js'
-  import {garden} from '@/assets/js/garden'
-  import {functions} from '@/assets/js/functions'
+
 
   export default {
 
@@ -86,8 +84,5 @@
   #copyright{margin-top:10px;text-align:center;width:100%;color:#666}
   #errorMsg{width:100%;text-align:center;font-size:24px;position:absolute;top:100px;left:0}
   #copyright a{color:#666}
-  @font-face {
-    font-family: digit;
-    src: url('digital-7_mono.ttf') format("truetype");
-  }
+
 </style>
