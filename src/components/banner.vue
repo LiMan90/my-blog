@@ -1,12 +1,10 @@
 <template lang="html">
   <div class="banner-list">
     <div class="banner" v-for="banner in list">
-        <div class="overhidden">
-          <a :href="banner.id">
-            <img class="post-image" :src="banner.image">
-          </a>
+        <div class="overhidden ">
+            <router-link :to="{ path:'/article', query:{articleId:banner.id}}"><img class="post-image" :src="banner.image"></router-link>
         </div>
-        <h3><a :href="banner.id" :title="banner.title">{{banner.title}}</a></h3>
+      <h3 class="entry-title"><router-link :to="{ path:'/article', query:{articleId:banner.id}}">{{banner.title}}</router-link></h3>
         <div><p>{{banner.contentAbstract}}</p></div>
     </div>
 

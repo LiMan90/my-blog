@@ -1,6 +1,6 @@
 <template lang="html" xmlns:v-popover="http://www.w3.org/1999/xhtml">
   <div class="blog">
-    <nav-header @shareTags='shareTags' @shareOne='shareOne'></nav-header>
+    <nav-header ></nav-header>
     <div class="headpic">
       <div class="container headtitle full">
         <div class="title">
@@ -37,8 +37,6 @@
   import scrollTop from '@/components/scrollTop.vue'
   import bannerList from  '@/components/banner.vue'
   import indexInfo from '@/components/indexInfo.vue'
-
-  import axios from 'axios'
   export default {
     name: 'Blog',
     components: {
@@ -52,58 +50,14 @@
     },
     data() {
       return {
-        tags: [],
-        messagesList: [],
-        tag: '',
-        limit: 8 // 用于限制首页显示留言量
+
       }
     },
     mounted() {
-      /*this.getMessages()*/
+
     },
     methods: {
-      // 利用监听获取子组件数据，并传给另外的子组件
-      shareTags(msg) {
-        this.tags = msg
-      },
-      shareOne(msg) {
-        this.tag = msg
-      },
-      getOne(msg) {
-        this.tag = msg
-      },
-      getMessages() {
-        axios.get("/api/messageList", {
-          params: {
-            limit: this.limit
-          }
-        }).then((result) => {
-          let res = result.data
-          this.messagesList = res.result
-        })
-      },
-      getTagList() {
-        var param = {
-          page: this.page,
-          pageSize: this.pageSize,
-          tag: this.tagSelect
-        }
-        axios.get("/api/tagsDetial", {
-          params: param
-        }).then((result) => {
-          let res = result.data
-          if (res.status == "0") {
-            if (res.result.count == 0) {
-              this.page -= 1
-              return
-            } else {
-              this.list = res.result.list
-            }
-          } else {
-            this.list = []
-          }
-        })
-      }
+
     }
   }
 </script>

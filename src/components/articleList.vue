@@ -1,7 +1,8 @@
 <template lang="html">
 <div class="article-list">
   <article class="block post wysiwyg" v-for="item in list">
-    <h2>{{item.title}}</h2>
+    <h2><router-link :to="{ path:'/article', query:{articleId:item.id}}">{{item.title}}</router-link></h2>
+
     <p class="article-meta">作者：{{item.author}}  发布于: {{item.createTime}}  文章分类：{{item.category}}</p>
 <!--    <div class="ui ribbon label red">
       <a href=""></a>
@@ -9,7 +10,7 @@
     <div class="abstract">
       {{item.contentAbstract}}
     </div>
-    <p class="more"><router-link :to="{ path:'/article', query:{articleId:item.id}}">阅读全文</router-link></p>
+    <p class="more"></p>
   </article>
   <div class="pages">
     <a href="javascript:;" @click="go(page.pageNum-=1)" style="float: left;">上一页</a>
@@ -19,7 +20,7 @@
 </template>
 
 <script>
-export default {
+  export default {
   props:[
     'tagSelect'
   ],
@@ -29,6 +30,8 @@ export default {
       page:{
         pageNum:1,
         pageSize:10,
+        prePage: 0,
+        nextPage: 2,
       },
       count: 0
     }
@@ -48,6 +51,7 @@ export default {
         this.list = r.list;
       })
     },
+
 
 /*    getTagList () {
       var param = {
@@ -74,11 +78,16 @@ export default {
 
 
     go () {
-      if (this.page<1) {
-        this.page = 1
+        console.log("go()")
+      if (this.page.pageNum<1) {
+        this.page.pageNum = 1
+        console.log(this.page.pageNum);
         return
       } else {
-        this.getSDailyhare();
+        console.log(this.page.pageNum);
+        this.getDailyhare();
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
       }
     }
   }

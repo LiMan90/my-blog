@@ -19,7 +19,6 @@
 // 实现导航条的自动显示
 import Headroom from 'headroom.js'
 import { unique } from '@/assets/js/unique';
-import axios from 'axios'
 export default {
   data () {
     return {
@@ -27,22 +26,7 @@ export default {
     }
   },
   methods: {
-    getTags () {
-      axios.get("/api/articleTags").then((result)=>{
-        let res = result.data
-        if (res.status == '0') {
-          this.tags = res.result
-          this.tags = unique(this.tags)
-          this.$emit('shareTags', this.tags)
-        } else {
-          this.tags = ["未获取到数据"]
-        }
-      })
-    },
-    getOne (tag) {
-      this.$emit('shareOne', tag)
-      this.$router.push({path:'/blog'})
-    }
+
   },
   mounted () {
     var myElement = document.querySelector(".header");
@@ -57,7 +41,6 @@ export default {
       }
     });
     headroom.init();
-    this.getTags()
   }
 }
 </script>

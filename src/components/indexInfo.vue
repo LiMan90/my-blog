@@ -11,14 +11,14 @@
         <div class="row">
           <ul>
             <div class="col-md-6" v-for="(article,index) in item.articles">
-
-              <article :id="article.id" v-if="index==0">
-                <a href="#">
+              <article v-if="index==0">
+                <router-link :to="{ path:'/article', query:{articleId:article.id}}">
                   <img class="first-post post-image" :src="article.image">
-                </a>
+                </router-link>
                 <h2 class="entry-title taggedlink first">
-
-                  <a href="#" :title="article.title"><i class="fa fa-hand-o-right" aria-hidden="true"></i>{{article.title}}</a>
+                  <router-link :to="{ path:'/article', query:{articleId:article.id}}">
+                    <i class="fa fa-hand-o-right" aria-hidden="true">{{article.title}}</i>
+                  </router-link>
                 </h2>
                 <div class="entry-content clearfix">
                   <p>
@@ -27,14 +27,13 @@
                 </div>
               </article>
 
-              <article :id="article.id" v-else>
-                <a href="#">
+              <article  v-else>
+                <router-link :to="{ path:'/article', query:{articleId:article.id}}">
                   <img class="alignleft post-image" :src="article.image" :srcset="article.image + ' 100w, 150w'"
                        sizes="(max-width: 100px) 100vw, 100px" width="100" height="100">
-                </a>
+                </router-link>
                 <h2 class="entry-title taggedlink">
-
-                  <a href="#" :title="article.title">{{article.title}}</a>
+                  <router-link :to="{ path:'/article', query:{articleId:article.id}}">{{article.title}}</router-link>
                 </h2>
                 <div class="entry-content clearfix">
                   <p>

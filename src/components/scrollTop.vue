@@ -6,7 +6,7 @@
 </template>
 
 <script>
- import { scrollIt } from '@/assets/js/scrollIt'; // 引入动画过渡的实现
+ import {scrollIt}  from '@/assets/js/scrollIt'; // 引入动画过渡的实现
  export default {
   name: 'scrollTop',
   props: {

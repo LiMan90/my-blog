@@ -4,7 +4,7 @@
   <div class="headpic">
     <div class="container headtitle full">
       <div class="title">
-        <h1 href="/blog">Chunibyo</h1>
+        <h1 href="/blog">ShanShan</h1>
       </div>
     </div>
   </div>
@@ -13,36 +13,15 @@
       <div class="main-full">
         <div class="full-content">
           <header>
-           <!-- <h2>{{article.title}}</h2>-->
-            <h2>css垂直居中总结</h2>
-            <p class="byline">by JhonXY
+            <h2>{{article.title}}</h2>
+            <p class="byline"> {{article.authorName}}
               <span class="sep">|</span>
               <!--<span class="date">{{article.createDate}}</span>-->
-              <span class="date">2017-11-11 14:14:15</span>
+              <span class="date">{{article.createTime}}</span>
             </p>
           </header>
           <div class="post-content wysiwyg" v-html="article.content">
-            webkit支持
 
-            webkit支持拥有overflow属性的区域，列表框，下拉菜单，textarea的滚动条自定义样式。
-            属性
-
-            ::-webkit-scrollbar 滚动条整体部分。
-            ::-webkit-scrollbar-thumb 滚动条里面的小方块，能向上向下移动（或往左往右移动，取决于是垂直滚动条还是水平滚动条）。
-            ::-webkit-scrollbar-track 滚动条的轨道（里面装有Thumb）。
-            ::-webkit-scrollbar-button 滚动条的轨道的两端按钮，允许通过点击微调小方块的位置。
-            ::-webkit-scrollbar-track-piece 内层轨道，滚动条中间部分（除去）。
-            ::-webkit-scrollbar-corner 边角，即两个滚动条的交汇处。
-            ::-webkit-resizer 两个滚动条的交汇处上用于通过拖动调整元素大小的小控件。
-
-            伪类与伪元素
-
-            伪类：:focus,:hover,:nth-child;
-            伪元素：::selecion,::first-letter,::after;
-
-            伪类的效果可以通过添加一个实际的类来达到，而伪元素的效果则需要通过添加一个实际的元素才能达到，这也是为什么他们一个称为伪类，一个称为伪元素的原因。
-            伪元素和伪类之所以这么容易混淆，是因为他们的效果类似而且写法相仿，但实际上 css3 为了区分两者，已经明确规定了伪类用一个冒号来表示，而伪元素则用两个冒号来表示。
-            具体属性
           </div>
         </div>
       </div>
@@ -74,18 +53,9 @@ export default {
   methods: {
     init() {
       let articleId = this.$route.query.articleId
-      let param = {
-        articleId: articleId
-      }
-      axios.get("/api/articleDetial", {
-        params: param
-      }).then((result) => {
-        let res = result.data
-        if (res.status == "0") {
-          this.article = res.result
-        } else {
-          this.article = ''
-        }
+      console.log(articleId);
+      this.$api.get('/article/'+ articleId , null, r => {
+        this.article = r;
       })
     }
   },

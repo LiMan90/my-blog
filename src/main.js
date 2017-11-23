@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-default/index.css'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 
+
 import '@/assets/css/container.css'
 import '@/assets/css/header.css'
 import '@/assets/css/article.css'
