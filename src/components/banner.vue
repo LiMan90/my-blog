@@ -34,9 +34,7 @@
     mounted () {
       this.getBanners();
     },
-    create(){
-      this.getBanners();
-    },
+
     methods: {
       getBanners(){
         this.$api.get('/banner', null, r => {

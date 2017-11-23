@@ -15,10 +15,10 @@ $(function () {
   gardenCtx.globalCompositeOperation = "lighter";
   garden = new Garden(gardenCtx, gardenCanvas);
 
-  $("#content").css("width", $loveHeart.width() + $("#code").width());
-  $("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
-  $("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
-  $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
+  $("#content-index").css("width", $loveHeart.width() + $("#code").width());
+  $("#content-index").css("height", Math.max($loveHeart.height(), $("#code").height()));
+  $("#content-index").css("margin-top", Math.max(($window.height() - $("#content-index").height()) / 2, 10));
+  $("#content-index").css("margin-left", Math.max(($window.width() - $("#content-index").width()) / 2, 10));
 
   // renderLoop
   setInterval(function () {
