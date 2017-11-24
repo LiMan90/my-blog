@@ -57,7 +57,7 @@ export default {
     },
     checkLogin(){
       if(!this.getCookie('user')){
-        this.$router.push('/login');
+        /*this.$router.push('/login');*/
       }
     }
   }
