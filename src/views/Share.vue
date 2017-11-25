@@ -1,6 +1,6 @@
 <template lang="html" xmlns:v-popover="http://www.w3.org/1999/xhtml">
   <div class="share">
-    <nav-header></nav-header>
+    <nav-header @shareTags='shareTags' @shareOne='shareOne'></nav-header>
     <div class="headpic">
       <div class="container headtitle full">
         <div class="title">
@@ -107,20 +107,7 @@
     font-family: 'Open Sans', 'Helvetica Neue', "Microsoft YaHei", 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
   }
 
-  .secondary h3 {
-    margin: 0 0 15px 0;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1;
-  }
 
-  .secondary h3 .cat-desc {
-    display: block;
-    margin: 5px 0 0 0;
-    font-size: 14px;
-    font-weight: normal;
-    color: #999;
-  }
 
   .pres {
     position: relative;
@@ -207,26 +194,8 @@
     margin: 0 0.2em;
   }
 
-  .message-title {
-    border-bottom: 2px solid rgba(139, 139, 139, 0.5);
-    padding: 0 10px;
-    color: rgb(139, 139, 139);
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 25px;
-  }
 
-  .message-item {
-    border-bottom: 1px dashed rgba(139, 139, 139, 0.4);
-  }
 
-  .message-from {
-    height: 45px;
-    padding: 8px 8px 0 57px;
-    display: block;
-    line-height: 14px;
-    position: relative;
-  }
 
   .message-avatar img {
     position: absolute;
@@ -238,45 +207,9 @@
     width: 37px;
   }
 
-  .l_title {
-    color: #778087;
-    font-weight: 700;
-    padding: 1px 0 0;
-    line-height: 17px;
-    font-size: 14px;
-  }
 
-  .l_message {
-    color: #778087;
-    display: block;
-    font-weight: 400;
-    line-height: 17px;
-    font-size: 13px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 
-  .tags {
-    flex-flow: row wrap;
-    display: flex;
-    padding-top: 20px;
-  }
 
-  .tags .tags-item {
-    margin: 0 16px 16px 0;
-    padding: 0 15px;
-    height: 30px;
-    line-height: 30px;
-    max-width: 100%;
-    background: rgba(0, 0, 0, .06);
-    color: #666768;
-    border-radius: 15px;
-    text-align: center;
-    font-size: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: block;
-  }
+
+
 </style>

@@ -17,7 +17,8 @@ import '@/assets/css/blog.css'
 import '@/assets/css/banner.css'
 import '@/assets/css/indexInfo.css'
 import '@/assets/css/share.css'
-import '@/assets/css/default.css'
+
+
 // 引用API文件
 import api from './api/index.js'
 // 将API方法绑定到全局
