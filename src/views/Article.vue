@@ -14,7 +14,7 @@
         <div class="main">
             <header>
               <h2>{{article.title}}</h2>
-                <p class="byline"> <span class="date">作者：</span>{{article.authorName}}
+              <p class="byline"> <span class="date">作者：<a>{{article.authorName}}</a></span>
 
                 <span class="date">发布时间：{{article.createTime}}</span>
                 <span class="date">阅读次数：1923</span>
@@ -108,7 +108,6 @@
   import NavFooter from '@/components/Footer.vue'
   import scrollTop from '@/components/scrollTop.vue'
   import 'wysiwyg.css'
-  import axios from 'axios'
   export default {
     name: 'Article',
     components: {
@@ -176,6 +175,7 @@
   }
 
   .post-content {
+    text-indent:28px;
     width: 66%;
     margin: 0 auto;
     margin-bottom: 20px;
@@ -204,12 +204,15 @@
   }
 
   .byline span.date {
+    margin-right: 12px;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: .03em;
     color: #bbb;
   }
-
+  .byline span.date a{
+    font-size:14px;
+  }
   /*markdown补充*/
   .wysiwyg img {
     max-width: 100%;

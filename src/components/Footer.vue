@@ -3,7 +3,6 @@
     <div class="container">
       <run-time></run-time>
       <p>Made
-        <i class="fa fa-heart"></i>
         By Lee
       </p>
     </div>

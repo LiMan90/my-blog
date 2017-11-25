@@ -1,5 +1,5 @@
 <template lang="html">
-  <p>已默默运行了
+  <p>相恋 <i class="fa fa-heart"></i>
     <span>{{moment}}</span>
   </p>
 </template>
@@ -14,15 +14,15 @@ export default {
   props: {
     originalYear: {
       type: Number,
-      default: 2017
+      default: 2016
     },
     originalMonth: {
       type: Number,
-      default: 7
+      default: 10
     },
     originalDate: {
       type: Number,
-      default: 1
+      default: 15
     },
     originalHour: {
       type: Number,
