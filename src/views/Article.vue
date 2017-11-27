@@ -25,55 +25,25 @@
 
             </div>
         </div>
+
         <div class="side">
           <side-section>
             <div slot="sidecontent">
               <h3>
-                <a href="">{{article.authorName}}</a>
-                <span class="cat-desc">Just A Coding Peasant</span>
+                <a href="">{{article.authorName}}(共89篇文章)</a>
+                <span class="cat-desc"></span>
               </h3>
+
               <div class="pres">
-                <a href="" class="pic">
-                  <img src="/static/card.jpg" alt="我的头像">
-                </a>
-                <a href="" class="detail">
-                <span class="item-info">
-                  <span class="item-title">XY</span>
-                  <span class="item-desc">2017</span>
-                </span>
-                </a>
+                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490938332840&di=0250b11ec1ee6ba7cb469d5b5a51cd7d&imgtype=0&src=http%3A%2F%2Fs6.sinaimg.cn%2Fmiddle%2F4a17d9d2g8ac4ec74c8d5%26690" width="100%" height="autho" alt="我的头像">
               </div>
-              <div class="social">
-                <a data-balloon="微博" href="http://weibo.com/" rel="nofollow" class="icon"><i class="fa fa-weibo"
-                                                                                             style="background-color: #dd4b39"></i></a>
-                <a data-balloon="github" href="https://github.com/JhonXY" rel="nofollow" class="icon"><i
-                  class="fa fa-github" style="background-color: #55acee;"></i></a>
-                <el-popover
-                  ref="youxiang"
-                  placement="bottom"
-                  title="我的邮箱"
-                  width="50"
-                  trigger="hover"
-                  content="1076849402@qq.com">
-                </el-popover>
-                <a data-balloon="邮箱" href="javascript:;" rel="nofollow" class="icon" v-popover:youxiang><i
-                  class="fa fa-envelope" style="background-color: #3b5998"></i></a>
-                <el-popover
-                  ref="jianli"
-                  placement="bottom"
-                  title="我的简历"
-                  width="50"
-                  trigger="hover"
-                  content="暂无内容">
-                </el-popover>
-                <a data-balloon="微博" href="javascript:;" rel="nofollow" class="icon" v-popover:jianli><i
-                  class="fa fa-address-card-o" style="background-color: #80b953"></i></a>
-              </div>
+              <p class="personal-signed"><i class="iconfont pers-icon">&#xe606;</i>
+                欢迎来到我们的情侣博客，这里记录着一个小仙女和一个程序员的故事，如果你喜欢我们的博客，记得和我们留言互动哦！<i class="iconfont pers-icon">&#xe605;</i>
+              </p>
             </div>
           </side-section>
-
-
         </div>
+
       </div>
     </div>
 

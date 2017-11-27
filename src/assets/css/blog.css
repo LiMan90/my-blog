@@ -65,6 +65,8 @@
 }
 
 .list .side {
+  padding: 14px 8px;
+  background-color: #fff;
   width: 30%;
   float: right;
 }

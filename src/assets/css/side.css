@@ -6,6 +6,20 @@
   padding: 15px;
 }
 
+.side h3{
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.personal-signed{
+  margin: 14px 0 20px;
+  padding: 5px 10px;
+  background: #dfdbdb;
+  line-height: 24px;
+  font-size: 12px;
+  color: #888888;
+  text-align: left;
+}
 
 /*.widget {
     margin-left: 10px;

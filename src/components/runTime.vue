@@ -1,5 +1,5 @@
 <template lang="html">
-  <p>相恋 <i class="fa fa-heart"></i>
+  <p>相恋 <i class="fa fa-heart fa-2x"></i>
     <span>{{moment}}</span>
   </p>
 </template>

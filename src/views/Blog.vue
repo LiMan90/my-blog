@@ -33,7 +33,6 @@
   import NavHeader from '@/components/Header.vue'
   import NavFooter from '@/components/Footer.vue'
   import articleList from '@/components/articleList.vue'
-  import sideSection from '@/components/sideSection.vue'
   import scrollTop from '@/components/scrollTop.vue'
   import bannerList from  '@/components/banner.vue'
   import indexInfo from '@/components/indexInfo.vue'
@@ -43,7 +42,6 @@
       NavHeader,
       NavFooter,
       articleList,
-      sideSection,
       scrollTop,
       bannerList,
       indexInfo
