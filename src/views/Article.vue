@@ -13,7 +13,7 @@
       <div class="list">
         <div class="main">
             <header>
-              <h2>{{article.title}}</h2>
+              <h2 class="content-title">{{article.title}}</h2>
               <p class="byline"> <span class="date">作者：<a>{{article.authorName}}</a></span>
 
                 <span class="date">发布时间：{{article.createTime}}</span>
@@ -77,27 +77,6 @@
       </div>
     </div>
 
-    <!--  <div class="container content full">
-        <div class="list">
-          <div class="main">
-            <div class="full-content">
-              <header>
-                <h2>{{article.title}}</h2>
-                <p class="byline"> {{article.authorName}}
-                  <span class="sep">|</span>
-                  &lt;!&ndash;<span class="date">{{article.createDate}}</span>&ndash;&gt;
-                  <span class="date">{{article.createTime}}</span>
-                </p>
-              </header>
-              <div class="post-content wysiwyg" v-html="article.content">
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>-->
-
-
     <scroll-top></scroll-top>
     <nav-footer></nav-footer>
   </div>
@@ -123,7 +102,6 @@
     methods: {
       init() {
         let articleId = this.$route.query.articleId
-        console.log(articleId);
         this.$api.get('/article/' + articleId, null, r => {
           this.article = r;
         })
@@ -141,21 +119,6 @@
   }
   .main{
     margin: 0 0 30px 0;
-    padding: 20px 0;
-    margin-top: -90px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
-    /*position: absolute;
-    top: -90px;*/
-    overflow: hidden;
-    -webkit-transition: all .5s ease-out;
-    transition: all .5s ease-out;
-    box-shadow: 0 16px 24px 1px rgba(0, 0, 0, .14), 0 6px 50px 1px rgba(0, 0, 0, .12), 0 6px 10px -5px rgba(0, 0, 0, .2);
-  }
-  .main-full {
-    width: 100%;
-    margin: 0 0 30px 0;
     margin-top: -90px;
     background: #fff;
     border-radius: 8px;
@@ -168,22 +131,17 @@
     box-shadow: 0 16px 24px 1px rgba(0, 0, 0, .14), 0 6px 50px 1px rgba(0, 0, 0, .12), 0 6px 10px -5px rgba(0, 0, 0, .2);
   }
 
-
-  .full-content header {
-    width: 66%;
-    margin: 0 auto 50px auto;
-  }
 
   .post-content {
     text-indent:28px;
-    width: 66%;
+    width: 82%;
     margin: 0 auto;
     margin-bottom: 20px;
   }
 
-  .main h2 {
+  .content-title {
     text-align: center;
-    margin: 0 20px 0 0;
+    margin: 30px auto;
     font-size: 40px;
     font-weight: 500;
     line-height: 1;
