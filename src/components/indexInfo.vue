@@ -1,4 +1,4 @@
-<template lang="html">
+<template lang="html" xmlns:max-width="http://www.w3.org/1999/xhtml">
   <div class="container from-the-blog">
     <div class="row">
       <div class="col-md-12 hfeed" v-for="item in ariticleList">
@@ -13,7 +13,7 @@
             <div class="col-md-6" v-for="(article,index) in item.articles">
               <article v-if="index==0">
                 <router-link :to="{ path:'/article', query:{articleId:article.id}}">
-                  <img class="first-post post-image" :src="article.image">
+                  <img class="first-post post-image" :src="article.image" max-width="100%" height="auto" >
                 </router-link>
                 <h2 class="entry-title first">
                   <router-link :to="{ path:'/article', query:{articleId:article.id}}">

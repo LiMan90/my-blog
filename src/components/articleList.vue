@@ -8,8 +8,7 @@
         <h2 class="entry-title taggedlink">
           <router-link :to="{ path:'/article', query:{articleId:item.id}}">{{item.title}}</router-link>
         </h2>
-      <div class="entry-meta"> 作者: <a itemprop="name" href="https://www.helingqi.com/author/2/"
-                                      rel="author"> {{item.author}} </a> </span>
+      <div class="entry-meta"> 作者: <router-link to="/about"> <span>{{item.author}}</span></router-link>
         <span> 发布时间:{{item.createTime}}</span>
         <span> 阅读次数: 105 </span> <span> 文章分类: <a href="https://www.helingqi.com/Daily-share.html">{{item.category}}</a> </span>
       </div>

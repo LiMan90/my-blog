@@ -4,7 +4,7 @@
     <div class="headpic">
       <div class="container headtitle full">
         <div class="title">
-          <h1 href="/blog">ShanShan</h1>
+          <a h1 href="/"><h1>ShanShan</h1></a>
         </div>
       </div>
     </div>
@@ -30,12 +30,12 @@
           <side-section>
             <div slot="sidecontent">
               <h3>
-                <a href="">{{article.authorName}}(共89篇文章)</a>
+                <a href="">{{author.nickName}}(共{{author.articleCount}}篇文章)</a>
                 <span class="cat-desc"></span>
               </h3>
 
               <div class="pres">
-                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490938332840&di=0250b11ec1ee6ba7cb469d5b5a51cd7d&imgtype=0&src=http%3A%2F%2Fs6.sinaimg.cn%2Fmiddle%2F4a17d9d2g8ac4ec74c8d5%26690" width="100%" height="autho" alt="我的头像">
+                <img :src="author.image" width="100%" height="auto" alt="我的头像">
               </div>
               <p class="personal-signed"><i class="iconfont pers-icon">&#xe606;</i>
                 欢迎来到我们的情侣博客，这里记录着一个小仙女和一个程序员的故事，如果你喜欢我们的博客，记得和我们留言互动哦！<i class="iconfont pers-icon">&#xe605;</i>
@@ -66,14 +66,16 @@
     },
     data() {
       return {
-        article: ''
+        article: '',
+        author:''
       }
     },
     methods: {
       init() {
         let articleId = this.$route.query.articleId
         this.$api.get('/article/' + articleId, null, r => {
-          this.article = r;
+          this.article = r.article;
+          this.author = r.author;
         })
       }
     },
@@ -106,7 +108,7 @@
     text-indent:28px;
     width: 82%;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
   }
 
   .content-title {

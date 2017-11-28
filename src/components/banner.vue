@@ -2,7 +2,7 @@
   <div class="banner-list">
     <div class="banner" v-for="banner in list">
         <div class="overhidden ">
-            <router-link :to="{ path:'/article', query:{articleId:banner.id}}"><img class="post-image" :src="banner.image"></router-link>
+            <router-link :to="{ path:'/article', query:{articleId:banner.id}}"><img class="post-image banner-img" :src="banner.image" width="120" height="120"></router-link>
         </div>
       <h3 class="entry-title"><router-link :to="{ path:'/article', query:{articleId:banner.id}}">{{banner.title}}</router-link></h3>
         <div><p>{{banner.contentAbstract}}</p></div>

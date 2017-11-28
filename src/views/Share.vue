@@ -4,7 +4,7 @@
     <div class="headpic">
       <div class="container headtitle full">
         <div class="title">
-          <h1 href="/blog">ShanShan</h1>
+          <a h1 href="/"><h1>ShanShan</h1></a>
         </div>
       </div>
     </div>
@@ -15,7 +15,21 @@
         </div>
 
         <div class="side">
+          <side-section>
+            <div slot="sidecontent">
+              <h3>
+                <a href="">{{nickName}}(共{{articleCount}}篇文章)</a>
+                <span class="cat-desc"></span>
+              </h3>
 
+              <div class="pres">
+                <img :src="image" width="100%" height="auto" alt="我的头像">
+              </div>
+              <p class="personal-signed"><i class="iconfont pers-icon">&#xe606;</i>
+                欢迎来到我们的情侣博客，这里记录着一个小仙女和一个程序员的故事，如果你喜欢我们的博客，记得和我们留言互动哦！<i class="iconfont pers-icon">&#xe605;</i>
+              </p>
+            </div>
+          </side-section>
         </div>
 
       </div>
@@ -40,17 +54,26 @@
     },
     data() {
       return {
-        tags: [],
-        dailyShare: [],
-        tag: '',
+        id: '',
+        nickName: '',
+        image: '',
+        articleCount: ''
 
       }
     },
     mounted() {
-
+      this.getAuthorInfo();
     },
     methods: {
+      getAuthorInfo(){
+        this.$api.get('/author/female', this.page, r => {
+          this.id = r.id;
+          this.image = r.image;
+          this.articleCount=r.articleCount;
+          this.nickName=r.nickName;
+        })
 
+      }
     }
   }
 </script>
@@ -60,8 +83,6 @@
     background-color: #f4f4f4;
     font-family: 'Open Sans', 'Helvetica Neue', "Microsoft YaHei", 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
   }
-
-
 
   .pres {
     position: relative;
@@ -148,9 +169,6 @@
     margin: 0 0.2em;
   }
 
-
-
-
   .message-avatar img {
     position: absolute;
     left: 10px;
@@ -160,10 +178,6 @@
     height: 37px;
     width: 37px;
   }
-
-
-
-
 
 
 </style>
