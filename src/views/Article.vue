@@ -14,7 +14,7 @@
         <div class="main">
             <header>
               <h2 class="content-title">{{article.title}}</h2>
-              <p class="byline"> <span class="date">作者：<a>{{article.authorName}}</a></span>
+              <p class="byline"> <span class="date">作者：<router-link to="/about"><a>{{article.authorName}}</a></router-link></span>
 
                 <span class="date">发布时间：{{article.createTime}}</span>
                 <span class="date">阅读次数：1923</span>
