@@ -30,7 +30,7 @@
           <side-section>
             <div slot="sidecontent">
               <h3>
-                <a href="">{{author.nickName}}(共{{author.articleCount}}篇文章)</a>
+                <router-link to="/about">{{author.nickName}}(共{{author.articleCount}}篇文章)</router-link>
                 <span class="cat-desc"></span>
               </h3>
 
