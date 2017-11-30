@@ -28,15 +28,11 @@ export default new Router({
   mode: 'history',
   base: './',
   routes: [
-/*    {
+
+    {
       path: '/',
       name: 'Index',
       component: Index
-    },*/
-    {
-      path: '/',
-      name: 'Blog',
-      component: Blog
     },
     {
       path: '/blog',
