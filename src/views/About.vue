@@ -8,28 +8,33 @@
         </div>
       </div>
     </div>
-    <div class="container full">
+    <div class="container content full">
       <div class="list">
-        <div>
-          <div class="full-content">
-            <div class="messages-text post-content">
-              <div style="height: 600px;">
-                <h2 style="margin-bottom: 20px;">About</h2>
-                <strong>心血来潮做的一个个人博客</strong>
-                <br>
-                <p style="margin-bottom: 20px;padding-top: 20px;">
-                  github地址 : <a href="https://github.com/JhonXY/vue-blog">https://github.com/JhonXY/vue-blog</a>
-                </p>
-                <p style="margin-bottom: 20px;">
-                  server部分地址: <a href="https://github.com/JhonXY/vue-blog-server">https://github.com/JhonXY/vue-blog-server</a>
-                </p>
-                <img src="/static/bingguo.jpg" alt="我很好奇">
-              </div>
-            </div>
-          </div>
+        <div class="main">
+
         </div>
+
+        <div class="side">
+          <side-section>
+            <div slot="sidecontent">
+              <h3>
+                <router-link to="/about">{{nickName}}(共{{articleCount}}篇文章)</router-link>
+                <span class="cat-desc"></span>
+              </h3>
+
+              <div class="pres">
+                <img :src="image" class="post-image" width="100%" height="auto" alt="我的头像">
+              </div>
+              <p class="personal-signed"><i class="iconfont pers-icon">&#xe606;</i>
+                欢迎来到我们的情侣博客，这里记录着一个小仙女和一个程序员的故事，如果你喜欢我们的博客，记得和我们留言互动哦！<i class="iconfont pers-icon">&#xe605;</i>
+              </p>
+            </div>
+          </side-section>
+        </div>
+
       </div>
     </div>
+    <scroll-top></scroll-top>
     <nav-footer></nav-footer>
   </div>
 </template>
@@ -37,18 +42,45 @@
 <script>
 import NavHeader from '@/components/Header.vue'
 import NavFooter from '@/components/Footer.vue'
+import scrollTop from '@/components/scrollTop.vue'
 export default {
+  name: 'About',
   components: {
     NavHeader,
     NavFooter,
+    scrollTop
+  },
+  data() {
+    return {
+      id: '',
+      nickName: '',
+      image: '',
+      articleCount: ''
+
+    }
+  },
+  mounted() {
+    this.getAuthorInfo();
+  },
+  methods: {
+    getAuthorInfo(){
+      this.$api.get('/author/male', this.page, r => {
+        this.id = r.id;
+        this.image = r.image;
+        this.articleCount=r.articleCount;
+        this.nickName=r.nickName;
+      })
+
+    }
   }
 }
 </script>
 
 <style lang="css">
-.about {
-  background-color: #fff;
-}
+  body {
+    background-color: #f4f4f4;
+    font-family: 'Open Sans', 'Helvetica Neue', "Microsoft YaHei", 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
+  }
 @media (max-width: 800px) {
   .about img {
     width: 100%;

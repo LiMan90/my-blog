@@ -8,7 +8,7 @@
         <div class="log-cloud cloud4"></div>
 
         <div class="log-logo">Welcome!</div>
-        <div class="log-text">@doterlin</div>
+        <!--<div class="log-text">@doterlin</div>-->
     </div>
     <div class="log-email">
         <input type="text" placeholder="Email" :class="'log-input' + (account==''?' log-input-empty':'')" v-model="account"><input type="password" placeholder="Password" :class="'log-input' + (password==''?' log-input-empty':'')"  v-model="password">

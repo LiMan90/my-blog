@@ -35,7 +35,7 @@
               </h3>
 
               <div class="pres">
-                <img :src="author.image" width="100%" height="auto" alt="我的头像">
+                <img :src="author.image" class="post-image" width="100%" height="auto" alt="我的头像">
               </div>
               <p class="personal-signed"><i class="iconfont pers-icon">&#xe606;</i>
                 欢迎来到我们的情侣博客，这里记录着一个小仙女和一个程序员的故事，如果你喜欢我们的博客，记得和我们留言互动哦！<i class="iconfont pers-icon">&#xe605;</i>
@@ -87,7 +87,8 @@
 
 <style media="screen">
   body {
-    background-color: #f4f4f4;;
+    background-color: #f4f4f4;
+    font-family: 'Open Sans', 'Helvetica Neue', "Microsoft YaHei", 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
   }
   .main{
     margin: 0 0 30px 0;

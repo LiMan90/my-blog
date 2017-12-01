@@ -23,7 +23,7 @@
               </h3>
 
               <div class="pres">
-                <img :src="image" width="100%" height="auto" alt="我的头像">
+                <img :src="image" class="post-image" width="100%" height="auto" alt="我的头像">
               </div>
               <p class="personal-signed"><i class="iconfont pers-icon">&#xe606;</i>
                 欢迎来到我们的情侣博客，这里记录着一个小仙女和一个程序员的故事，如果你喜欢我们的博客，记得和我们留言互动哦！<i class="iconfont pers-icon">&#xe605;</i>
