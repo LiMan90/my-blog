@@ -1,6 +1,6 @@
 <template lang="html" xmlns:v-popover="http://www.w3.org/1999/xhtml">
   <div class="share">
-    <nav-header @shareTags='shareTags' @shareOne='shareOne'></nav-header>
+    <nav-header></nav-header>
     <div class="headpic">
       <div class="container headtitle full">
         <div class="title">
@@ -11,7 +11,7 @@
     <div class="container content full">
       <div class="list">
         <div class="main">
-          <article-list :tagSelect="tag"></article-list>
+          <article-list></article-list>
         </div>
 
         <div class="side">

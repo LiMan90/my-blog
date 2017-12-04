@@ -114,6 +114,7 @@ p {
 .entry-title { margin: 0; }
 .from-the-blog .entry-title { margin-bottom: 5px; }
 .entry-title a:hover { text-decoration: none; color: #777; }
+.entry-title span:hover { text-decoration: none; color: #777; }
 .entry-meta { line-height: 1; margin: 10px 5px; color: #999; padding-bottom: 5px; font-size: 14px; }
 .entry-meta span { margin: 0 10px 0 0; line-height: 1.5}
 .description { color: #666; margin: 0; line-height: 2}
