@@ -11,7 +11,7 @@
       <div class="entry-meta"> 作者:
         <router-link class="entry-title" to="/about"><span>{{item.author}}</span></router-link>
         <span> 发布时间:{{item.createTime}}</span>
-        <span> 阅读次数: 105 </span> <span> 文章分类: <a href="javascript:;" @click="category(item.categoryId)">{{item.category}}</a> </span>
+        <span> 阅读次数: 105 </span> <span class="entry-title"> 文章分类: <a href="javascript:;" @click="category(item.categoryId)">{{item.category}}</a> </span>
       </div>
 
       <div class="entry-content description clearfix">
