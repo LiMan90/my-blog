@@ -2,7 +2,7 @@
 
 .banner{
   width:25%;
-  padding: 25px 5px;
+  padding: 25px 10px 10px;
   text-align:center;
   float:left;
 }
@@ -10,8 +10,7 @@
 .overhidden{
   display:inline-block;
   position:relative;
-  width:200px;
-  height:200px;
+  width:80%;
   overflow:hidden;
   border-radius:50%;
   border: 2px solid #5bc0de;
@@ -24,8 +23,6 @@
   vertical-align:middle;
   width: auto;
   height: auto;
-  max-width: 150%;
-  max-height: 150%;
   overflow: hidden;
 }
 
@@ -47,7 +44,7 @@
 
 .banner div{
   color: #666;
-  font-size: 16px;
+  font-size: 14px;
   word-wrap: break-word;
   outline: none;
   line-height: 1.2;
@@ -56,9 +53,7 @@
 }
 .banner div p{
   line-height: 140%;
-  margin: 0  10px 10px;
   word-wrap: break-word;
-  outline: none;
-  text-align: center;
-  height: 40px;
+
 }
+

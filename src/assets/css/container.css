@@ -4,7 +4,7 @@
     position: relative;
 }
 .container.full {
-    max-width: 80%;
+    max-width: 68%;
 }
 .container:after {
     clear: both;

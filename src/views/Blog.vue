@@ -68,7 +68,6 @@
 
   .main-full {
     width: 100%;
-    width: 100%;
     margin: 0 0 30px 0;
     margin-top: -90px;
     background: #fff;

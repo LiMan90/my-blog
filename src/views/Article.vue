@@ -14,11 +14,11 @@
         <div class="main">
             <header>
               <h2 class="content-title">{{article.title}}</h2>
-              <p class="byline"> <span class="date">作者：<router-link to="/about"><a>{{article.authorName}}</a></router-link></span>
+              <p class="byline"> <span class="date">作者：<router-link class="entry-title" to="/about"><a>{{article.authorName}}</a></router-link></span>
 
                 <span class="date">发布时间：{{article.createTime}}</span>
                 <span class="date">阅读次数：1923</span>
-                <span class="date">文章分类：{{article.tags}}</span>
+                <span class="date">文章分类：<a>{{article.tags}}</a></span>
               </p>
             </header>
             <div class="post-content wysiwyg" v-html="article.content">
@@ -29,7 +29,7 @@
         <div class="side">
           <side-section>
             <div slot="sidecontent">
-              <h3>
+              <h3 class="entry-title">
                 <router-link to="/about">{{author.nickName}}(共{{author.articleCount}}篇文章)</router-link>
                 <span class="cat-desc"></span>
               </h3>
