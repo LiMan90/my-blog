@@ -26,7 +26,7 @@
       <el-form-item label="文章标题" :label-width="formLabelWidth">
         <el-input v-model="form.title" placeholder="请输入标题"></el-input>
       </el-form-item>
-      <el-form-item label="文章标签" :label-width="formLabelWidth">
+      <el-form-item label="文章分类" :label-width="formLabelWidth">
         <el-select v-model="form.tag" placeholder="请选择活动区域">
           <el-option :key="item.name" :label="item.name" :value="item.name" v-for="item in tags"></el-option>
         </el-select>
@@ -61,7 +61,7 @@
       @blur="handleInputConfirm"
     >
     </el-input>
-    <el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>
+    <el-button v-else class="button-new-tag" size="small" @click="showInput">+ 新增分类</el-button>
     <div slot="footer" class="dialog-footer">
       <el-button type="primary" @click="dialogTableVisible2 = false">确 定</el-button>
     </div>

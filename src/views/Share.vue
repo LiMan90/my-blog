@@ -17,7 +17,7 @@
         <div class="side">
           <side-section>
             <div slot="sidecontent">
-              <h3>
+              <h3 class="entry-title">
                 <router-link to="/about">{{nickName}}(共{{articleCount}}篇文章)</router-link>
                 <span class="cat-desc"></span>
               </h3>

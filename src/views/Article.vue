@@ -18,7 +18,7 @@
 
                 <span class="date">发布时间：{{article.createTime}}</span>
                 <span class="date">阅读次数：1923</span>
-                <span class="date">文章分类：<a>{{article.tags}}</a></span>
+                <span class="date">文章分类：<a>{{article.category}}</a></span>
               </p>
             </header>
             <div class="post-content wysiwyg" v-html="article.content">
