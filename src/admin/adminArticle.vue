@@ -17,7 +17,7 @@
       <el-button v-popover:popover5 class="submit">发布</el-button>
       <div class="left">
       <el-button @click="dialogTableVisible = true">填写信息</el-button>
-      <el-button @click="dialogTableVisible2 = true">添加分类</el-button>
+      <el-button @click="dialogTableVisible2 = true">添加文章分类</el-button>
       </div>
     </div>
   </div>
@@ -41,13 +41,13 @@
       <el-button type="primary" @click="dialogTableVisible = false">确 定</el-button>
     </div>
   </el-dialog>
-  <el-dialog title="标签分类" :visible.sync="dialogTableVisible2" id="tags">
+  <el-dialog title="文章分类" :visible.sync="dialogTableVisible2" id="tags">
     <el-tag
       :key="tag.name"
       v-for="tag in tags"
       :closable="true"
       :close-transition="false"
-      @close="handleClose(tag.name)"
+      @close="handleClose(tag)"
     >
     {{tag.name}}
     </el-tag>
@@ -123,30 +123,24 @@ export default{
         }
       },
       getTags () {
-        axios.get("/api/tags").then((result)=>{
-          let res = result.data
-          if (res.status == "0"){
-            this.tags = res.result.list;
-          } else {
-            this.tags = [];
-          }
+        this.$api.get('/category', null, r => {
+          this.tags = r;
         })
+
       },
       handleClose(tag) {
-        this.tags.splice(this.tags.indexOf(tag.name), 1);
-        axios.post("/api/tagsDelete", {
-          tagDel: tag
-        }).then((response)=>{
-          let res = response.data
-          if (res.status == '0') {
-            this.$message({
-              type: 'success',
-              message: '标签已删除'
-            })
-          } else {
-            this.$message.error('未删除')
-          }
+        this.tags.splice(this.tags.indexOf(tag), 1)
+        this.$api.delete('/category/'+ tag.id,null,r =>{
+          this.$message({
+            type: 'success',
+            message: '标签已删除'
+          })
+        }, f =>{
+          type: 'error',
+          this.$message.error('删除失败')
         })
+
+
       },
       showInput() {
         this.inputVisible = true;
@@ -157,20 +151,19 @@ export default{
       handleInputConfirm() {
         let inputValue = this.inputValue;
         if (inputValue) {
-          this.tags.push({name:inputValue});
-          axios.post("/api/tagsAdd", {
-            tagAdd: inputValue
-          }).then((response)=>{
-            let res = response.data
-            if (res.status == '0') {
-              this.$message({
-                type: 'success',
-                message: '标签已添加'
-              })
-            } else {
-              this.$message.error('未添加')
-            }
+         let category={
+              name: inputValue
+          }
+          this.$api.post('/category',category,r =>{
+            this.$message({
+              type: 'success',
+              message: '标签已添加'
+            })
+            this.tags.push({name:inputValue});
+          }, f=>{
+            this.$message.error('添加失败')
           })
+
         }
         this.inputVisible = false;
         this.inputValue = '';
