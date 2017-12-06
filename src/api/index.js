@@ -5,11 +5,11 @@ var axios = require('axios')
 axios.defaults.timeout = 5000;                        //响应时间
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 // 自定义判断元素类型JS
-function toType (obj) {
+function toType(obj) {
   return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
 }
 // 参数过滤函数
-function filterNull (o) {
+function filterNull(o) {
   for (var key in o) {
     if (o[key] === null) {
       delete o[key]
@@ -34,23 +34,25 @@ function filterNull (o) {
  另外，不同的项目的处理方法也是不一致的，这里出错就是简单的alert
  */
 
-function apiAxios (method, url, params, success, failure) {
+function apiAxios(method, url, params, success, failure) {
   if (params) {
     params = filterNull(params)
   }
+  console.log(method + '-->' + (method === 'UPLOAD'? 'multipart/form-data' : 'application/json;charset=utf-8'));
   axios({
-    method: method,
+    method: method === 'UPLOAD' ? 'POST' : method,
     url: url,
     data: method === 'POST' || method === 'PUT' ? params : null,
     params: method === 'GET' || method === 'DELETE' ? params : null,
     baseURL: root,
+    headers:{ 'Content-Type': method === 'UPLOAD'? 'multipart/form-data' : 'application/json;charset=utf-8'},
     withCredentials: false
   })
     .then(function (res) {
       if (res.status === 200) {
-        if( success && res.data.message ==='success'){
+        if (success && res.data.message === 'success') {
           success(res.data.data)
-        } else if(failure){
+        } else if (failure) {
           failure(res.data.message)
         }
       }
@@ -77,5 +79,8 @@ export default {
   },
   delete: function (url, params, success, failure) {
     return apiAxios('DELETE', url, params, success, failure)
+  },
+  upload: function (url, params, success, failure) {
+    return apiAxios('UPLOAD', url, params, success, failure)
   }
 }
