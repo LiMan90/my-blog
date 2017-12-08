@@ -1,14 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Index from '@/views/Index'
-// import Blog from '@/views/Blog'
-// import About from '@/views/About'
-// import Article from '@/views/Article'
-// import Messages from '@/views/Messages'
-// import admin from '@/admin/admin'
-// import adminArticle from '@/admin/adminArticle'
-// import change from '@/admin/change'
-// import adminArticleList from '@/admin/adminArticleList'
+
 import login from '@/admin/login'
 const Blog = resolve => require(['@/views/Blog'], resolve)
 const Share = resolve => require(['@/views/Share'],resolve)

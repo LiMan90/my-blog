@@ -1,7 +1,8 @@
 <template lang="html">
   <div>
     <div class="admin-container">
-      <mavon-editor class="set" v-model="value" @imgAdd="imgAdd" @imgDel="imgDel" @change="getContent"></mavon-editor>
+      <mavon-editor class="set" v-model="value" @imgAdd="imgAdd" @imgDel="imgDel" @change="getContent"
+                    ref="medit" ></mavon-editor>
       <div class="footer">
         <el-popover
           ref="popover5"
@@ -104,17 +105,15 @@
         } else if (!this.content) {
           this.$message.error('无内容')
         } else {
-
-          this.imgUpload();
-
-          console.log(this.form.tag)
-
           let article = {
             title: this.form.title,
             content: this.content,
             categoryId: this.form.tag,
-            contentAbstract: this.form.describtion
+            contentAbstract: this.form.describtion,
+            image: this.img_file[0],
+            authorId: 1
           }
+
 
           this.$api.post('/article', article, s => {
             this.$message({
@@ -154,6 +153,7 @@
           this.$refs.saveTagInput.$refs.input.focus();
         });
       },
+
       handleInputConfirm() {
         let inputValue = this.inputValue;
         if (inputValue) {
@@ -179,16 +179,25 @@
         console.log(this.img_file);
         let formdata = new FormData();
         for(var _img in this.img_file){
-          formdata.append(_img, this.img_file[_img]);
-        }
-        this.$api.upload('/up',formdata ,s =>{
+          formdata.append('file', this.img_file[_img]);
+          this.$api.upload('/up',formdata ,s =>{
+            this.$refs.medit.$img2Url(pos, s.imgPath);
+            this.$refs.medit.$refs.toolbar_left.$imgUpdateByFilename(pos,s.imgPath)
+          },f =>{
 
+          })
+        }
+      },
+      imgAdd(pos, $file){
+        console.log(this.img_file);
+        let formdata = new FormData();
+        formdata.append('file',  $file);
+        this.$api.upload('/up',formdata ,s =>{
+          this.$refs.medit.$img2Url(pos, s.imgPath);
+          this.$refs.medit.$refs.toolbar_left.$imgUpdateByFilename(pos,s.imgPath)
         },f =>{
 
         })
-      },
-      imgAdd(pos, $file){
-        this.img_file[pos] = $file;
       },
       imgDel(pos){
         delete this.img_file[pos];
@@ -237,7 +246,7 @@
   }
 
   .set {
-    height: 740px;
+    height: 680px;
     /*overflow: scroll;*/
   }
 

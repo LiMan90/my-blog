@@ -34,16 +34,15 @@ function filterNull(o) {
  另外，不同的项目的处理方法也是不一致的，这里出错就是简单的alert
  */
 
-function apiAxios(method, url, params, success, failure) {
+function apiAxios(method, url, params, success, failure, config) {
   if (params) {
     params = filterNull(params)
   }
-  console.log(method + '-->' + (method === 'UPLOAD'? 'multipart/form-data' : 'application/json;charset=utf-8'));
   axios({
     method: method === 'UPLOAD' ? 'POST' : method,
     url: url,
-    data: method === 'POST' || method === 'PUT' ? params : null,
-    params: method === 'GET' || method === 'DELETE' ? params : null,
+    data: method === 'POST' || method === 'PUT' || method === 'UPLOAD' ? params : null,
+    params: method === 'GET' || method === 'DELETE' || method === 'UPLOAD'? params : null,
     baseURL: root,
     headers:{ 'Content-Type': method === 'UPLOAD'? 'multipart/form-data' : 'application/json;charset=utf-8'},
     withCredentials: false
