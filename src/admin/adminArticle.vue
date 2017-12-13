@@ -110,7 +110,7 @@
             content: this.content,
             categoryId: this.form.tag,
             contentAbstract: this.form.describtion,
-            image: this.img_file[0],
+            image: '',
             authorId: 1
           }
 
@@ -175,8 +175,8 @@
         this.inputValue = '';
       },
 
+      //批量上传
       imgUpload(){
-        console.log(this.img_file);
         let formdata = new FormData();
         for(var _img in this.img_file){
           formdata.append('file', this.img_file[_img]);
@@ -188,8 +188,13 @@
           })
         }
       },
+
+      //单文件上传
       imgAdd(pos, $file){
-        console.log(this.img_file);
+        console.log(pos);
+        if(pos==='./0'){
+          console.log(this.img_file[pos]);
+        }
         let formdata = new FormData();
         formdata.append('file',  $file);
         this.$api.upload('/up',formdata ,s =>{
