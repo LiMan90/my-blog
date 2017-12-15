@@ -2,7 +2,7 @@
   <div>
     <div class="admin-container">
       <mavon-editor class="set" v-model="value" @imgAdd="imgAdd" @imgDel="imgDel" @change="getContent"
-                    ref="medit" ></mavon-editor>
+                    ref="medit"></mavon-editor>
       <div class="footer">
         <el-popover
           ref="popover5"
@@ -75,7 +75,7 @@
   export default{
     data(){
       return {
-        value: '#look here',
+        value: '#Edit in this',
         tags: [],
         content: '',
         visible2: false,
@@ -100,19 +100,27 @@
         this.content = render
       },
       subArticle () {
+        let article = {
+          title: this.form.title,
+          content: this.content,
+          categoryId: this.form.tag,
+          contentAbstract: this.form.describtion,
+          image: '',
+          authorId: 1
+        }
+
+        for (let i in this.img_file) {
+            article.image=i.value;
+            break;
+        }
+
+        console.log(this.img_file);
+        console.log(article.image);
         if (!this.form.title) {
           this.$message.error('无标题')
         } else if (!this.content) {
           this.$message.error('无内容')
         } else {
-          let article = {
-            title: this.form.title,
-            content: this.content,
-            categoryId: this.form.tag,
-            contentAbstract: this.form.describtion,
-            image: '',
-            authorId: 1
-          }
 
 
           this.$api.post('/article', article, s => {
@@ -178,12 +186,12 @@
       //批量上传
       imgUpload(){
         let formdata = new FormData();
-        for(var _img in this.img_file){
+        for (var _img in this.img_file) {
           formdata.append('file', this.img_file[_img]);
-          this.$api.upload('/up',formdata ,s =>{
+          this.$api.upload('/up', formdata, s => {
             this.$refs.medit.$img2Url(pos, s.imgPath);
-            this.$refs.medit.$refs.toolbar_left.$imgUpdateByFilename(pos,s.imgPath)
-          },f =>{
+            this.$refs.medit.$imgAddByUrl(pos.s.imgPath);
+          }, f => {
 
           })
         }
@@ -191,19 +199,19 @@
 
       //单文件上传
       imgAdd(pos, $file){
-        console.log(pos);
-        if(pos==='./0'){
-          console.log(this.img_file[pos]);
-        }
         let formdata = new FormData();
-        formdata.append('file',  $file);
-        this.$api.upload('/up',formdata ,s =>{
+        formdata.append('file', $file);
+        this.$api.upload('/up', formdata, s => {
           this.$refs.medit.$img2Url(pos, s.imgPath);
-          this.$refs.medit.$refs.toolbar_left.$imgUpdateByFilename(pos,s.imgPath)
-        },f =>{
+          console.log("111")
+          this.$refs.medit.$imgUpdateByUrl(pos.s.imgPath);
+          console.log("222")
+        }, f => {
 
         })
       },
+
+
       imgDel(pos){
         delete this.img_file[pos];
       }

@@ -9,7 +9,7 @@
       <el-menu-item index="2-2">选项2</el-menu-item>
       <el-menu-item index="2-3">选项3</el-menu-item>
     </el-submenu>
-    <el-menu-item index="3"><a href="https://www.baidu.com" target="_blank">百度</a></el-menu-item>
+    <el-menu-item index="3"><a href="/" target="_blank">首页</a></el-menu-item>
     </el-menu>
     <el-breadcrumb separator="/" style="padding: 20px 20px 20px 20px;">
       <el-breadcrumb-item :to="{ path: '/admin' }">首页</el-breadcrumb-item>
