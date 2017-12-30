@@ -17,13 +17,13 @@
                 <h3 class="hestia-title text-center">Leave a Reply</h3>
                 <textarea ref='textBox' spellcheck='false' row="1" placeholder="咱们交♂流交♂流~~" v-model="message" class="msg-content" cols="45" rows="8" aria-required="true"></textarea>
                 <div class="input">
-                  <input type="text" placeholder="起个名吧" v-model.trim="name" class="msg-name">
-                  <input type="email" placeholder="你的邮箱哦" v-model.trim="email" class="msg-email">
+                  <input type="text" placeholder="你的名字" v-model.trim="name" class="msg-name">
+                  <input type="email" placeholder="你的邮箱" v-model.trim="email" class="msg-email">
                 </div>
-                <span>{{status}}</span>
+                <span style="color:red; font-size: 12px;">{{status}}</span>
                 <br>
                 <button @click='submit' :disabled='submitFlag' class="submit">
-                      <span>{{submitFlag ? '提交中...' : '发布评论'}}</span>
+                      <span>{{submitFlag ? '提交中...' : '发布留言'}}</span>
                 </button>
               </div>
               <div class="msg">
@@ -69,8 +69,12 @@ export default {
       message: '',
       email: '',
       name: '',
-      status: '请输入',
-      submitFlag: false
+      status: '',
+      submitFlag: false,
+      page: {
+        pageNum: 1,
+        pageSize: 10
+      }
     }
   },
   components: {
@@ -87,9 +91,8 @@ export default {
   },
   methods: {
     getMessages () {
-      axios.get("/api/messageList").then((result)=>{
-        let res = result.data
-        this.messagesList = res.result
+      this.$api.get('/message/list', this.page , r => {
+        this.messagesList = r;
       })
     },
     submit () {
@@ -115,18 +118,15 @@ export default {
       this.summitFlag = true
       localStorage.setItem('e-mail', this.email)
       localStorage.setItem('name', this.name)
-      axios.post("/api/messageSub", {
+      this.$api.post("/message/sub", {
         "name": this.name,
         "email": this.email,
         "content": this.message
-      }).then((result)=>{
-          let res = result.data
-          if (res.status == "0") {
-            this.status = '留言成功喽'
-            this.getMessages()
-          } else {
-            this.status = '蜜汁错误'
-          }
+      },res =>{
+          this.message=null;
+          this.status = res;
+      },fail =>{
+        this.status = '你做了什么，蜜汁错误！！▄█▀█●给跪了，联系博主吧';
       })
     }
   }

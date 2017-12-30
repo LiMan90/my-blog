@@ -34,7 +34,7 @@ function filterNull(o) {
  另外，不同的项目的处理方法也是不一致的，这里出错就是简单的alert
  */
 
-function apiAxios(method, url, params, success, failure, config) {
+function apiAxios(method, url, params, success, failure) {
   if (params) {
     params = filterNull(params)
   }
@@ -60,7 +60,7 @@ function apiAxios(method, url, params, success, failure, config) {
       let res = err.response
       if (err) {
         console.log('api error, HTTP CODE: ' + res.status)
-        failure(err)
+        failure(res)
       }
     })
 }
