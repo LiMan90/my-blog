@@ -75,7 +75,7 @@
   export default{
     data(){
       return {
-        value: '#Edit in this',
+        value: '',
         tags: [],
         content: '',
         visible2: false,
