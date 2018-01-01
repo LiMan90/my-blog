@@ -79,9 +79,7 @@
     methods: {
       getIndexInfo(){
         this.$api.get('/article/info', null, r => {
-          console.log(r);
           this.ariticleList = r;
-
         })
 
       }

@@ -1,5 +1,5 @@
-<template lang="html">
-  <div class="messages">
+<template lang="html" xmlns:v-popover="http://www.w3.org/1999/xhtml">
+  <div class="article">
     <nav-header></nav-header>
     <div class="headpic">
       <div class="container headtitle full">
@@ -8,59 +8,89 @@
         </div>
       </div>
     </div>
-    <div class="container full">
+
+    <div class="container content full">
       <div class="list">
-        <div>
-          <div class="full-content">
-            <!--<div class="messages-text post-content">-->
-            <div class="messages-text">
-              <div class="msg">
-                <ol class="msg-list">
-                  <h3 class="hestia-title text-center">留言板</h3>
-                  <li class="msg-list-item" v-for="item in messagesList">
-                    <article>
-                      <header>
-                       <!-- <img class="avatar" :src="'https://cdn.v2ex.com/gravatar/' + item.email + '?s=120&d=mm&r=g'"
-                             alt="">-->
-                        <img class="avatar" src="/static/images/boy.jpg"
-                             alt="">
-                        <div class="msg-author">
-                          <div class="msg-author-name">{{item.name}} <span id="admin"
-                                                                           v-if="item.email == 'e210aaaced957c912a7dd01cccc53004'">管理员</span>
-                          </div>
+        <div class="main">
+          <!--上面都是公共模版-->
+
+          <div style="margin: 20px 25px;">
+          <div class="messages-text">
+            <!--留言板-->
+            <div class="msg">
+              <ol class="msg-list">
+                <h3 class="hestia-title text-center">留言板</h3>
+                <li class="msg-list-item" v-for="item in messagesList">
+                  <article>
+                    <header>
+                      <!-- <img class="avatar" :src="'https://cdn.v2ex.com/gravatar/' + item.email + '?s=120&d=mm&r=g'"
+                            alt="">-->
+                      <img class="avatar post-image" src="/static/images/boy.jpg"
+                           alt="">
+                      <div class="msg-author">
+                        <div class="msg-author-name">{{item.name}} <span id="admin"
+                                                                         v-if="item.email == 'e210aaaced957c912a7dd01cccc53004'">管理员</span>
                         </div>
-                        <div class="msg-author-time">{{item.createDate}}</div>
-                      </header>
-                      <section class="msg-main">
-                        <div class="msg-reply">
-                          <p>{{item.content}}</p>
-                        </div>
-                      </section>
-                    </article>
-                  </li>
-                </ol>
-              </div>
+                      </div>
+                      <div class="msg-author-time">{{item.createDate}}</div>
+                    </header>
+                    <section class="msg-main">
+                      <div class="msg-reply">
+                        <p>{{item.content}}</p>
+                      </div>
+                    </section>
+                  </article>
+                </li>
+              </ol>
+            </div>
 
-              <div style="overflow:hidden;margin-bottom:20px;">
-
-                <textarea ref='textBox' spellcheck='false' row="1" placeholder="咱们交♂流交♂流~~" v-model="message"
-                          class="msg-content" cols="45" rows="8" aria-required="true"></textarea>
-                <div class="input">
-                  <input type="text" placeholder="你的名字。不想填? 那我把你当宮水三葉了" v-model.trim="name" class="msg-name">
-                  <input type="email" placeholder="你的邮箱。这个总该填一下了吧" v-model.trim="email" class="msg-email">
-                </div>
-                <span style="color:red; font-size: 12px;">{{status}}</span>
-                <br>
-                <button @click='submit' :disabled='submitFlag' class="submit">
-                  <span>{{submitFlag ? '提交中...' : '发布留言'}}</span>
-                </button>
-              </div>
-
+            <!--翻页-->
+            <div class="pages">
+              <a href="javascript:;" @click="go(page.pageNum-=1)" style="float: left; margin: 0px;">上一页</a>
+              <a href="javascript:;" @click="go(page.pageNum+=1)" style="float: right; margin: 0px;">下一页</a>
             </div>
           </div>
+
+
+          <!--新增留言-->
+            <div style="overflow:hidden;margin-bottom:20px;">
+                <textarea ref='textBox' spellcheck='false' row="1" placeholder="咱们交♂流交♂流~~" v-model="message"
+                          class="msg-content" cols="45" rows="8" aria-required="true"></textarea>
+              <div class="input">
+                <input type="text" placeholder="你的名字。不想填? 那我把你当宮水三葉了" v-model.trim="name" class="msg-name">
+                <input type="email" placeholder="你的邮箱。这个总该填一下了吧" v-model.trim="email" class="msg-email">
+              </div>
+              <span style="color:red; font-size: 12px;">{{status}}</span>
+              <br>
+              <button @click='submit' :disabled='submitFlag' class="submit">
+                <span>{{submitFlag ? '提交中...' : '发布留言'}}</span>
+              </button>
+            </div>
+
+          </div>
+
+          </div>
+
+
+        <div class="side">
+            <div slot="sidecontent">
+              <h3 class="entry-title">
+                <router-link to="/about">预留位置先把布局撑起来</router-link>
+                <span class="cat-desc"></span>
+              </h3>
+
+              <div class="pres">
+                <img :src="author.image" class="post-image" width="100%" height="auto" alt="我的头像">
+              </div>
+              <p class="personal-signed"><i class="iconfont pers-icon">&#xe606;</i>
+                欢迎来到我们的情侣博客，这里记录着一个小仙女和一个程序员的故事，如果你喜欢我们的博客，记得和我们留言互动哦！<i class="iconfont pers-icon">&#xe605;</i>
+              </p>
+            </div>
         </div>
+
       </div>
     </div>
+
     <scroll-top></scroll-top>
     <nav-footer></nav-footer>
   </div>
@@ -101,7 +131,7 @@
             ccreateDate:'2017-12-31 21:02:31'
           },
         ],
-
+        author:'',
         message: '',
         email: '',
         name: '',
@@ -169,7 +199,82 @@
   }
 </script>
 
-<style lang="css" scoped>
+<style media="screen">
+  body {
+    background-color: #f4f4f4;
+    font-family: 'Open Sans', 'Helvetica Neue', "Microsoft YaHei", 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
+  }
+  .main{
+    margin: 0 0 30px 0;
+    margin-top: -90px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+    /*position: absolute;
+    top: -90px;*/
+    overflow: hidden;
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+    box-shadow: 0 16px 24px 1px rgba(0, 0, 0, .14), 0 6px 50px 1px rgba(0, 0, 0, .12), 0 6px 10px -5px rgba(0, 0, 0, .2);
+  }
+
+
+  .post-content {
+    text-indent:28px;
+    width: 82%;
+    margin: 0 auto;
+    margin-bottom: 60px;
+  }
+
+  .content-title {
+    text-align: center;
+    margin: 30px auto;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -.03em;
+    color: #444;
+  }
+
+  .byline {
+    text-align: center;
+    width: auto;
+    margin: 14px 0;
+  }
+
+  .byline span.sep {
+    margin: 0 4px;
+    font-weight: normal;
+    color: #ddd;
+  }
+
+  .byline span.date {
+    margin-right: 12px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: #bbb;
+  }
+  .byline span.date a{
+    font-size:14px;
+  }
+  /*markdown补充*/
+  .wysiwyg img {
+    max-width: 100%;
+    display: block;
+  }
+
+  .wysiwyg ul li {
+    list-style-type: disc;
+  }
+
+  .wysiwyg ol li {
+    list-style-type: decimal;
+  }
+
+
+
+
   #admin {
     padding: 1px 5px;
     background-color: rgb(213, 103, 103);
@@ -259,8 +364,8 @@
   }
 
   .msg-list .avatar {
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     float: left;
     -webkit-transition: all .4s ease-in-out;
@@ -282,4 +387,6 @@
   .full-content header {
     margin: 0 0 !important;
   }
+
+
 </style>

@@ -27,7 +27,6 @@
         </div>
 
         <div class="side">
-          <side-section>
             <div slot="sidecontent">
               <h3 class="entry-title">
                 <router-link to="/about">{{author.nickName}}(共{{author.articleCount}}篇文章)</router-link>
@@ -41,7 +40,6 @@
                 欢迎来到我们的情侣博客，这里记录着一个小仙女和一个程序员的故事，如果你喜欢我们的博客，记得和我们留言互动哦！<i class="iconfont pers-icon">&#xe605;</i>
               </p>
             </div>
-          </side-section>
         </div>
 
       </div>
