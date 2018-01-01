@@ -110,25 +110,25 @@
             name: '111',
             emial: '123@qq.com',
             content: '留言内容测试1',
-            ccreateDate:'2017-12-31 21:02:31'
+            createDate:'2017-12-31 21:02:31'
           },
           {
             name: '222',
             emial: '123@qq.com',
             content: '留言内容测试12',
-            ccreateDate:'2017-12-31 21:02:31'
+            createDate:'2017-12-31 21:02:31'
           },
           {
             name: '333',
             emial: '123@qq.com',
             content: '留言内容测试31',
-            ccreateDate:'2017-12-31 21:02:31'
+            createDate:'2017-12-31 21:02:31'
           },
           {
             name: '444',
             emial: '123@qq.com',
             content: '留言内容测试14',
-            ccreateDate:'2017-12-31 21:02:31'
+            createDate:'2017-12-31 21:02:31'
           },
         ],
         author:'',
