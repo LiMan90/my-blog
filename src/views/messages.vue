@@ -16,6 +16,7 @@
             <div class="messages-text">
               <div class="msg">
                 <ol class="msg-list">
+                  <h3 class="hestia-title text-center">留言板</h3>
                   <li class="msg-list-item" v-for="item in messagesList">
                     <article>
                       <header>
@@ -41,7 +42,7 @@
               </div>
 
               <div style="overflow:hidden;margin-bottom:20px;">
-                <h3 class="hestia-title text-center">Leave a Reply</h3>
+
                 <textarea ref='textBox' spellcheck='false' row="1" placeholder="咱们交♂流交♂流~~" v-model="message"
                           class="msg-content" cols="45" rows="8" aria-required="true"></textarea>
                 <div class="input">
