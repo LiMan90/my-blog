@@ -20,25 +20,51 @@
             <div class="msg">
               <ol class="msg-list">
                 <h3 class="hestia-title text-center">留言板</h3>
-                <li class="msg-list-item" v-for="item in messagesList">
+                <li class="msg-list-item" v-for="item in messagesList.list">
                   <article>
                     <header>
                       <!-- <img class="avatar" :src="'https://cdn.v2ex.com/gravatar/' + item.email + '?s=120&d=mm&r=g'"
                             alt="">-->
-                      <img class="avatar post-image" src="/static/images/boy.jpg"
+                      <img class="avatar post-image" :src="item.image"
                            alt="">
                       <div class="msg-author">
-                        <div class="msg-author-name">{{item.name}} <span id="admin"
-                                                                         v-if="item.email == 'e210aaaced957c912a7dd01cccc53004'">管理员</span>
+                        <div class="msg-author-name">{{item.name}} <!--<span id="admin"
+                                                                         v-if="item.email == 'e210aaaced957c912a7dd01cccc53004'">管理员</span>-->
                         </div>
+
+                        <div class="reply-div"><a href="/">回复</a></div>
                       </div>
-                      <div class="msg-author-time">{{item.createDate}}</div>
+
+                      <div class="msg-author-time">{{item.createTime}}</div>
                     </header>
                     <section class="msg-main">
                       <div class="msg-reply">
                         <p>{{item.content}}</p>
                       </div>
                     </section>
+
+                    <li class="msg-list-item" v-for="reply in item.reply">
+                      <article style="margin-left:15%;">
+                        <header>
+                          <!-- <img class="avatar" :src="'https://cdn.v2ex.com/gravatar/' + item.email + '?s=120&d=mm&r=g'"
+                                alt="">-->
+                          <img class="avatar post-image" :src="reply.fromUser.img"
+                               alt="我的头像">
+                          <div class="msg-author">
+                            <div class="msg-author-name">{{reply.fromUser.nickName}}
+                              <!--<span  v-if="reply.fromUser.email == '清清乔@qq.com'">管理员</span>-->
+                            </div>
+                            <div class="reply-div"><a href="/">回复</a></div>
+                          </div>
+                          <div class="msg-author-time">{{reply.createTime}}</div>
+                        </header>
+                        <section class="msg-main">
+                          <div class="msg-reply">
+                            <p><a style="background-color:#dfdbdb;">@{{reply.toUser.nickName}}</a> {{reply.content}}</p>
+                          </div>
+                        </section>
+                      </article>
+                    </li>
                   </article>
                 </li>
               </ol>
@@ -54,7 +80,7 @@
 
           <!--新增留言-->
             <div style="overflow:hidden;margin-bottom:20px;">
-                <textarea ref='textBox' spellcheck='false' row="1" placeholder="咱们交♂流交♂流~~" v-model="message"
+                <textarea ref='textBox' spellcheck='false' row="1" placeholder="说出你的故事" v-model="message"
                           class="msg-content" cols="45" rows="8" aria-required="true"></textarea>
               <div class="input">
                 <input type="text" placeholder="你的名字。不想填? 那我把你当宮水三葉了" v-model.trim="name" class="msg-name">
@@ -106,7 +132,7 @@
     data () {
       return {
         messagesList:  [
-          {
+         /* {
             name: '111',
             emial: '123@qq.com',
             content: '留言内容测试1',
@@ -129,7 +155,7 @@
             emial: '123@qq.com',
             content: '留言内容测试14',
             createDate:'2017-12-31 21:02:31'
-          },
+          },*/
         ],
         author:'',
         message: '',
@@ -153,13 +179,18 @@
         this.email = localStorage['e-mail']
         this.name = localStorage['name']
       }
-      /*this.getMessages()*/
+      this.getMessages()
     },
     methods: {
       getMessages () {
         this.$api.get('/message/list', this.page, r => {
+            console.log(r);
           this.messagesList = r;
         })
+      },
+
+      onclickReply(rootId,parentId){
+
       },
       submit () {
         let reg = /^[\w_-]+@[\w_-]+\.[\w\\.]+$/
@@ -387,6 +418,20 @@
   .full-content header {
     margin: 0 0 !important;
   }
+
+
+  .reply-div{
+    float:right;
+
+  }
+  .reply-div > a{
+    color: #aaa;
+  }
+  .reply-div > a:hover{
+    color: #fe9800;
+    outline: none;
+  }
+
 
 
 </style>
