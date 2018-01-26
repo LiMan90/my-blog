@@ -32,7 +32,7 @@
                                                                          v-if="item.email == 'e210aaaced957c912a7dd01cccc53004'">管理员</span>-->
                         </div>
 
-                        <div class="reply-div"><a href="/">回复</a></div>
+                        <div class="reply-div"><a href="javascript:void(0)" @click="goAnchor()">回复</a></div>
                       </div>
 
                       <div class="msg-author-time">{{item.createTime}}</div>
@@ -54,7 +54,7 @@
                             <div class="msg-author-name">{{reply.fromUser.nickName}}
                               <!--<span  v-if="reply.fromUser.email == '清清乔@qq.com'">管理员</span>-->
                             </div>
-                            <div class="reply-div"><a href="/">回复</a></div>
+                            <div class="reply-div"><a href="javascript:void(0)" @click="goAnchor()">回复</a></div>
                           </div>
                           <div class="msg-author-time">{{reply.createTime}}</div>
                         </header>
@@ -64,6 +64,12 @@
                           </div>
                         </section>
                       </article>
+                    </li>
+
+
+                    <li class="reply-div">
+                      <div>回复发言人</div>
+
                     </li>
                   </article>
                 </li>
@@ -80,7 +86,7 @@
 
           <!--新增留言-->
             <div style="overflow:hidden;margin-bottom:20px;">
-                <textarea ref='textBox' spellcheck='false' row="1" placeholder="说出你的故事" v-model="message"
+                <textarea id="addMessageText" ref='textBox' spellcheck='false' row="1" placeholder="说出你的故事" v-model="message"
                           class="msg-content" cols="45" rows="8" aria-required="true"></textarea>
               <div class="input">
                 <input type="text" placeholder="你的名字。不想填? 那我把你当宮水三葉了" v-model.trim="name" class="msg-name">
@@ -88,7 +94,7 @@
               </div>
               <span style="color:red; font-size: 12px;">{{status}}</span>
               <br>
-              <button @click='submit' :disabled='submitFlag' class="submit">
+              <button  @click='submit' :disabled='submitFlag' class="submit">
                 <span>{{submitFlag ? '提交中...' : '发布留言'}}</span>
               </button>
             </div>
@@ -131,32 +137,7 @@
   export default {
     data () {
       return {
-        messagesList:  [
-         /* {
-            name: '111',
-            emial: '123@qq.com',
-            content: '留言内容测试1',
-            createDate:'2017-12-31 21:02:31'
-          },
-          {
-            name: '222',
-            emial: '123@qq.com',
-            content: '留言内容测试12',
-            createDate:'2017-12-31 21:02:31'
-          },
-          {
-            name: '333',
-            emial: '123@qq.com',
-            content: '留言内容测试31',
-            createDate:'2017-12-31 21:02:31'
-          },
-          {
-            name: '444',
-            emial: '123@qq.com',
-            content: '留言内容测试14',
-            createDate:'2017-12-31 21:02:31'
-          },*/
-        ],
+        messagesList:  [],
         author:'',
         message: '',
         email: '',
@@ -182,9 +163,50 @@
       this.getMessages()
     },
     methods: {
+      goAnchor() {
+          console.log("1111")
+        let anchor = this.$el.querySelector('#addMessageText')
+        let total = anchor.offsetTop
+        document.body.scrollTop = total
+        document.documentElement.scrollTop = total
+        window.pageYOffset = total
+       /* let distance = document.documentElement.scrollTop || document.body.scrollTop
+        // 平滑滚动，时长500ms，每10ms一跳，共50跳
+        let step = total / 50
+        if (total > distance) {
+          smoothDown()
+        } else {
+          let newTotal = distance - total
+          step = newTotal / 50
+          smoothUp()
+        }
+
+        function smoothDown () {
+          if (distance < total) {
+            distance += step
+            document.body.scrollTop = distance
+            document.documentElement.scrollTop = distance
+            setTimeout(smoothDown, 10)
+          } else {
+            document.body.scrollTop = total
+            document.documentElement.scrollTop = total
+          }
+        }
+        function smoothUp () {
+          if (distance > total) {
+            distance -= step
+            document.body.scrollTop = distance
+            document.documentElement.scrollTop = distance
+            setTimeout(smoothUp, 10)
+          } else {
+            document.body.scrollTop = total
+            document.documentElement.scrollTop = total
+          }
+        }*/
+      },
+
       getMessages () {
         this.$api.get('/message/list', this.page, r => {
-            console.log(r);
           this.messagesList = r;
         })
       },
@@ -212,7 +234,7 @@
           this.status = '可不能发不好的东东哦'
           return
         }
-        this.summitFlag = true
+        this.summitFlag = true;
         localStorage.setItem('e-mail', this.email)
         localStorage.setItem('name', this.name)
         this.$api.post("/message/sub", {
@@ -222,8 +244,9 @@
         }, res => {
           this.message = null;
           this.status = res;
+          this.getMessages();
         }, fail => {
-          this.status = '你做了什么，蜜汁错误！！▄█▀█●给跪了，联系博主吧';
+          this.status = '你做了什么，蜜汁错误！！▄█▀█●给跪了，联系我们吧';
         })
       }
     }
