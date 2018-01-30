@@ -164,7 +164,6 @@
     },
     methods: {
       goAnchor() {
-          console.log("1111")
         let anchor = this.$el.querySelector('#addMessageText')
         let total = anchor.offsetTop
         document.body.scrollTop = total
