@@ -4,7 +4,7 @@
     <div class="headpic">
       <div class="container headtitle full">
         <div class="title">
-         <a h1 href="/"><h1>ShanShan</h1></a>
+         <a h1 href="/"><h1>清都山水郎</h1></a>
         </div>
       </div>
     </div>

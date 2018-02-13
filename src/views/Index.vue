@@ -3,7 +3,7 @@
     <div id="wrapper">
 <!--      <h1>Home</h1>
       <h2>just a Coding Peasant</h2>-->
-      <h1><router-link to="/blog">闪闪的博客</router-link></h1>
+      <h1><router-link to="/blog">清都山水郎</router-link></h1>
      <!-- <p><a href="/lover.html">Our Love Story</a></p>-->
 
     </div>
