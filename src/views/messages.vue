@@ -67,10 +67,7 @@
                     </li>
 
 
-                    <li class="reply-div">
-                      <div>回复发言人</div>
 
-                    </li>
                   </article>
                 </li>
               </ol>

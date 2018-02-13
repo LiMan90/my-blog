@@ -17,7 +17,7 @@
               <p class="byline"> <span class="date">作者：<router-link class="entry-title" to="/about"><a>{{article.authorName}}</a></router-link></span>
 
                 <span class="date">发布时间：{{article.createTime}}</span>
-                <span class="date">阅读次数：1923</span>
+                <!--<span class="date">阅读次数：1923</span>-->
                 <span class="date">文章分类：<a>{{article.category}}</a></span>
               </p>
             </header>

@@ -12,7 +12,12 @@
     <div class="container content full">
       <div class="list">
         <div class="main">
-            <div>fsdkfljskfjslfjlsdfkls</div>
+          <!--上面都是公共模版-->
+
+          <div style="margin: 20px 25px;">
+            <div>这个页面放什么好了，还没有想好</div>
+
+          </div>
         </div>
 
         <div class="side">
